@@ -9,7 +9,10 @@
 #include "inventory.h"
 #include "characters.h"
 #include "combat.h"
+#include "parser.h"
 int main(int argc, char** argv)
 {
+    int gameWon = 0;
+    parser(gameWon);
     return 0;
 }
