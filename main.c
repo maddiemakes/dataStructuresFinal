@@ -10,6 +10,7 @@
 #include "characters.h"
 #include "combat.h"
 #include "parser.h"
+#include "rooms.h"
 int main(int argc, char** argv)
 {
     printf("Hi there soldier. Why don't you have a look around?\n");
