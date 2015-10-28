@@ -12,6 +12,7 @@
 #include "parser.h"
 int main(int argc, char** argv)
 {
+    printf("Hi there soldier. Why don't you have a look around?\n");
     int gameWon = 0;
     parser(gameWon);
     return 0;

@@ -4,17 +4,29 @@
  * Program: parser.c
  */
 #include<stdio.h>
+#include<string.h>
 void parser(int gameWon)
 {
-    char *words [80];
+    char words [80];
     while(gameWon == 0)
     {
         printf(">>>");
-        scanf("%79s", &words);
-        printf("words: %s\n", words);
-        if(words == "hi")
+        scanf(" %79[0-9a-zA-Z ]", words);
+        if(!strcmp(words,"hi"))
         {
-            printf("hey");
+            printf("hey\n");
+        }
+        if(!strcmp(words,"hi there"))
+        {
+            printf("heyoo\n");
+        }
+        if(!strcmp(words,"look") || !strcmp(words,"look around"))
+        {
+            printf("You're in a room. There is a package on the floor.\n");
+        }
+        if(!strcmp(words,"pickup") || !strcmp(words,"pick up"))
+        {
+            printf("You pick up the package.\n");
         }
     }
 
