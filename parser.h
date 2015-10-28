@@ -1,7 +1,7 @@
 /* Author: Jordan Wells
  * Date 28 Oct 2015
  * Date last modified: 28 Oct 2015
- * Program: parser.c
+ * Program: parser.h
  */
 #include<stdio.h>
 #include<string.h>
@@ -29,5 +29,4 @@ void parser(int gameWon)
             printf("You pick up the package.\n");
         }
     }
-
 };
