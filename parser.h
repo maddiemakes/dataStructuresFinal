@@ -7,7 +7,9 @@
 #include<string.h>
 #include "characters.h"
 #include "rooms.h"
+#include "memoryCard.h"
 
+//includes all possible user input
 int dictionary(char* word, Character* player);
 
 void parser(int gameWon, Character* player)
@@ -15,8 +17,8 @@ void parser(int gameWon, Character* player)
     char input [80];
     while(gameWon == 0)
     {
-        printf(">>>");
-        scanf(" %79[0-9a-zA-Z ]", input);
+        printf(">>>");                      //user input styling
+        scanf(" %79[0-9a-zA-Z ]", input);   //user input
         
         switch (dictionary(input, player)) {
             default:        //input is not a valid command
@@ -29,6 +31,9 @@ void parser(int gameWon, Character* player)
             case -2:        //who am I?
                 printf("You are %s\n", player->name);
                 break;
+            case -4:
+                save(player);
+                break;
             case 0:         //no
                 break; 
             case 1:         //yes
@@ -39,6 +44,9 @@ void parser(int gameWon, Character* player)
             case 3:         //look around
                 roomCheck(player);
                 break;
+            //these cases are all actions
+            //the actions check to see if they are the correct action
+            //to advance the story, based on where the player is
             case 4:
             case 5:
             case 6:
@@ -63,45 +71,48 @@ int dictionary(char* word, Character* player)
     //checks to see if "input" is one of the phrases the computer knows
     
     if(!strcmp(word,"no")) { return 0; }
-    if(!strcmp(word,"quit")) { return -1; }
-    if(!strcmp(word,"who")||!strcmp(word,"who am I")||!strcmp(word,"who am i")) { return -2; }
+    if(!strcmp(word,"quit")) { return -1; }         //allows user to quit the game
+    if(!strcmp(word,"who")||!strcmp(word,"who am I")||!strcmp(word,"who am i")) { return -2; }  //allows user to know who their character is
+    if(!strcmp(word,"save")) {return -4;}
 
+    //in order to get the program to check for all possible types of a category,
+    //runs a for loop to cycle through them all and checks for ==
     for(int k = 0; k<14;k++) {
         if(!strcmp(word,yes[k]))
         {
-            return 1;
+            return 1;       // each one returns a different case value
         }
     }
     
     for(int k = 0; k < 2;k++) {
         if(!strcmp(word,look[k])) {
-            return 3;
+            return 3;       //diff types of "look"
         }
     }
 
     for(int k = 0; k < 4;k++) {
         if(!strcmp(word, greeting[k])) 
         {
-            return 2;
+            return 2;       //diff "hellos"
         }
     }
     
     for(int k = 0; k < 7;k++) {
         if(!strcmp(word,struggle[k]))
         {
-            return 4;
+            return 4;       //what would magikarp do?
         }
     }
     
-    if(!strcmp(word,"use switch")||!strcmp(word,"flip switch")){ return 5; }
+    if(!strcmp(word,"use switch")||!strcmp(word,"flip switch")){ return 5; } //use the switch Luke
     
-    if(!strcmp(word,"look statues") || !strcmp(word,"look at statues")) { return 6; }
-    if(!strcmp(word,"push button")) { return 8; }
+    if(!strcmp(word,"look statues") || !strcmp(word,"look at statues")) { return 6; }   // oh those look cool
+    if(!strcmp(word,"push button")) { return 8; }   // I wonder what this does
     
     for(int k = 0; k<10;k++)
     {
-        if(!strcmp(word,statues[k])) { return 7; }
+        if(!strcmp(word,statues[k])) { return 7; }  //let's look closer at the statues
     }
     
-    return -3;
+    return -3;  //default return value for no match
 };

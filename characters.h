@@ -1,11 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 #ifndef CHARACTERS_H
 #define CHARACTERS_H
-//could be a function containing each individual character class?
-
-//could make individual functions containing each individual character class?
 
 struct Character
 {
@@ -14,7 +12,7 @@ struct Character
     // int class;
     int room;   //location of player
     int stage;  //where player is at in "stages" of the current room
-    int hp;
+    int hp;     //player health
 };
 typedef struct Character Character;
 Character* makeCharacter();
@@ -29,6 +27,7 @@ Character* makeCharacter()
     return out;
 }
 #endif
+
 
 // void player()
 // {

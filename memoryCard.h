@@ -11,13 +11,18 @@ void fileCheck()
 }
 
 
-void save()
+void save(Character* player)
 {
+    FILE* fp = fopen("./saveFile.txt","w+");
+    fprintf(fp, "%s,%i,%i", player->name,player->room,player->hp);
+    fclose(fp);
     //saves game to file
 };
 
 
-void load(int fileName)
+void load(FILE* fp)
 {
+    fp = fopen("./saveFile.txt","r");
+    fclose(fp);
     //loads game file
 };

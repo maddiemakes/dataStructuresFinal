@@ -4,7 +4,7 @@
  * Program: main.c
  */
 #include<stdio.h>
-#include "memoryCard.h"
+// #include "memoryCard.h"
 #include "settings.h"
 #include "inventory.h"
 #include "characters.h"
@@ -20,7 +20,7 @@ int main(int argc, char** argv)
     Character* player = makeCharacter();
     
     printf("Ah, yes, hello there adventurer. I apologize but I seem to have forgotten your name.\n");
-    printf("Would you mind reminding me?\n");
+    printf("What was your name again?\n");
     while(1)
     {
         printf(">>>");
