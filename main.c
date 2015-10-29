@@ -10,11 +10,39 @@
 #include "characters.h"
 #include "combat.h"
 #include "parser.h"
-#include "rooms.h"
+
+
 int main(int argc, char** argv)
 {
-    printf("Hi there soldier. Why don't you have a look around?\n");
     int gameWon = 0;
-    parser(gameWon);
+    char input [80];
+    
+    Character* player = makeCharacter();
+    
+    printf("Ah, yes, hello there adventurer. I apologize but I seem to have forgotten your name.\n");
+    printf("Would you mind reminding me?\n");
+    while(1)
+    {
+        printf(">>>");
+        scanf(" %79[0-9a-zA-Z ]", input);
+        if(dictionary(input,player) == 0)
+        {
+            printf("How rude! Hmph. You know I don't have to take you on a journey.\n");
+            printf("I'll give you another chance. What is your name?\n");
+        }
+        else if(dictionary(input,player) != -3)
+        {
+            printf("No silly, that can't be your name! Try again.\n");
+        }
+        else {
+            break;
+        }
+    }
+    player->name = input;
+    printf("Ah yes, that's right! You're %s! How could I forget?\n", player->name);
+    printf("Now, %s, why don't you have a look around?\n", player->name);
+    
+    parser(gameWon, player);
+    
     return 0;
 }
