@@ -1,4 +1,4 @@
-/* Authors: Jordan Wells, Sicheng Zeng, Yuxuan Liu
+/* Authors: Madison Wells, Sicheng Zeng, Yuxuan Liu
  * Date 22 Oct 2015
  * Date last modified: 22 Oct 2015
  * Program: main.c
