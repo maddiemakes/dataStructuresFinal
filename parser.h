@@ -1,4 +1,4 @@
-/* Author: Jordan Wells
+/* Author: Madison Wells
  * Date 28 Oct 2015
  * Date last modified: 28 Oct 2015
  * Program: parser.h
